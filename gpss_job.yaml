@@ -1,0 +1,33 @@
+DATABASE: webinar
+USER: gpadmin
+HOST: localhost
+PORT: 5432
+VERSION: 2
+FILE:
+    INPUT:
+       SOURCE:
+         URL: file:///home/gpadmin/csv_files/*.csv
+       VALUE:
+         COLUMNS:
+            - NAME: date
+              TYPE: text
+            - NAME: open
+              TYPE: text
+            - NAME: high
+              TYPE: text
+            - NAME: low
+              TYPE: text
+            - NAME: close
+              TYPE: text
+            - NAME: adj_close
+              TYPE: text
+            - NAME: volume
+              TYPE: text
+         FORMAT: csv
+         CSV_OPTION:
+            DELIMITER: ","
+            QUOTE: "\""
+    OUTPUT:
+       SCHEMA: public
+       TABLE: csv_file_stock
+       MODE: insert
